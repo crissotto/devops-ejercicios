@@ -1,0 +1,79 @@
+IP mas conocido como protocolo de internet proporciona una cadena numerica unica la cual permite identificar dispositivos en una red
+
+Mascara de subred es utilizado en redes IP para dividir una direccion IP en partes de red y host. Determina que parte de la direccion IP es red y cual es host. Se escriben usualmente en decimal
+
+DNS es un sistema que traduce dominios de direcciones webs en direcciones IP que las computadoras utilizan para identificarse en una red.
+
+Un Gateway es un dispositivo que actúa como puente entre diferentes redes, permitiendo que los datos fluyan entre ellas. Sirve como punto de entrada y salida para el tráfico de datos entre una red local (por ejemplo, una red doméstica u oficina)
+
+NAT permite que varios dispositivos en una red local compartan una sola dirección IP pública al acceder a redes externas
+
+sudo apt-get install vim
+
+carlos.rissotto@UY-IT02871:~$ df -h
+Filesystem                 Size  Used Avail Use% Mounted on
+udev                       7,7G     0  7,7G   0% /dev
+tmpfs                      1,6G  2,4M  1,6G   1% /run
+/dev/mapper/vgubuntu-root  466G  214G  229G  49% /
+tmpfs                      7,7G  275M  7,5G   4% /dev/shm
+tmpfs                      5,0M  4,0K  5,0M   1% /run/lock
+tmpfs                      7,7G     0  7,7G   0% /sys/fs/cgroup
+/dev/loop0                 1,2G  1,2G     0 100% /snap/android-studio/127
+/dev/loop3                  41M   41M     0 100% /snap/snapd/19993
+/dev/loop1                 128K  128K     0 100% /snap/bare/5
+/dev/loop2                 497M  497M     0 100% /snap/gnome-42-2204/141
+/dev/loop5                  13M   13M     0 100% /snap/snap-store/959
+/dev/loop4                  41M   41M     0 100% /snap/snapd/20092
+/dev/loop9                 497M  497M     0 100% /snap/gnome-42-2204/132
+/dev/loop6                  46M   46M     0 100% /snap/snap-store/638
+/dev/loop7                  64M   64M     0 100% /snap/core20/1974
+/dev/loop10                350M  350M     0 100% /snap/gnome-3-38-2004/143
+/dev/loop11                 92M   92M     0 100% /snap/gtk-common-themes/1535
+/dev/loop14                 64M   64M     0 100% /snap/core20/2015
+/dev/loop12                 74M   74M     0 100% /snap/core22/858
+/dev/loop8                  74M   74M     0 100% /snap/core22/864
+/dev/loop13                350M  350M     0 100% /snap/gnome-3-38-2004/140
+/dev/nvme0n1p2             1,4G  287M  1,1G  22% /boot
+/dev/nvme0n1p1             511M   65M  447M  13% /boot/efi
+tmpfs                      1,6G   52K  1,6G   1% /run/user/147089486
+
+df -h se utiliza para mostrar informacion sobre el espacio en disco, muestra lo siguiente S.ficheros     Tamaño Usados  Disp. Uso% Montado en
+
+Un file system es una estructura para organizar y gestionar datos. Un inode es una estructura de datos que almacena informacion sobre archivos y directorios como permisos, propietario y ubicacion fisica en el disco.
+
+ls -l lista archivos y directorios en un directorio especifico y de forma detallada
+
+similar a ls -l el -r invierte el orden de la lista lo cuales los mas recientes aparecen al final
+el -t ordena los elementos en la lista segun su fecha y hora de modificacion
+-a muestra todo los archivos y directorios
+al combinarlo se obtiene una lista de archivos y directorios que incluye todos los elementos incluyendo los ocultos ordenados de forma descendente segun su fecha y hora de modificacion con los elementos mas recientes
+
+Hay 3 tipos de permisos para un archivo los cuales son para el propietario, para el grupo y para otros. Los permisos se dividen en tres. Permiso de lectura (r), permiso de escritura (w) y permiso de ejecucion (x)
+
+PID se trata del numero el cual se le asigna a cada proceso dentro del sistema operativo para identificarlo de manera unica
+
+Man: Es un comando el cual despliega un manual o documentacion de algunos programas del sistema
+mkdir: Es un comando que sirve para crear directorios 
+rm: Es un comando que sirve para remover directorios
+touch: Es un comando para crear archivos
+mv: Es un comando que sirve para mover archivos o directorios de una ubicacion a otra
+cp: Es un comando que sirve para copiar archivos o directorios de una ubicacion a otra
+
+
+tail -n 10 /var/log/syslog
+less /var/log/syslog
+
+carlos.rissotto@UY-IT02871:~$ free
+              total        used        free      shared  buff/cache   available
+Mem:       16089988     4316128     1481796     1215800    10292064    10215500
+Swap:        999420      864936      134484
+
+carlos.rissotto@UY-IT02871:~$ uptime
+ 16:05:17 up  6:12,  1 user,  load average: 1,04, 1,48, 1,76
+
+carlos.rissotto@UY-IT02871:~$ ps
+    PID TTY          TIME CMD
+  19952 pts/2    00:00:00 bash
+  33020 pts/2    00:00:00 ps
+
+
