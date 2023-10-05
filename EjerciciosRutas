@@ -1,0 +1,178 @@
+Actividad 1: Crea la siguiente estructura de directorios utilizando una sola orden y mediante rutas relativas, dentro de /home/alumno. Puedes ejecutar la orden tree al finalizar para comprobar que es correcto.
+
+mkdir -p /home/alumno/{Optica/{AlumnosOpt/NotasOpt,ProfesoresOpt,AulaOpt},Informatica/{AlumnosInf/NotasInf,ProfesoresInf,AulaInf},Turismo/{AlumnosTur/NotasTur,ProfesoresTur,AulaTur}}
+
+
+Actividad 2: Lista todos los archivos del directorio /etc que empiecen por t en orden inverso.
+
+ls -r /etc/t*
+
+Actividad 3: Lista todos los archivos del directorio /dev que empiecen por tty y tengan 5 caracteres.
+
+ls /dev/tty?
+
+Actividad 4: Lista todos los archivos del directorio /dev que empiecen por tty y acaben en 1, 2, 3 ó 4.
+
+ls  /dev | grep '^tty.*[1-4]$'
+
+Actividad 5: Lista todos los archivos del directorio /dev que empiecen por t y acaben en C1.
+
+ls /dev/t*C1
+
+Actividad 6: Lista todos los archivos del directorio /etc que no empiecen por t.
+
+ls /etc/[^t]*
+
+Actividad 7: Estando en /home/alumno, crea dentro del directorio AlumnosInf los archivos alu1.txt, fotoalu1.jpg, alu2.txt, fotoalu2.jpg, utilizando una única orden. Puedes elegir hacerlo con rutas absolutas o relativas.
+
+touch AlumnosInf/alu{1..2}.txt AlumnosInf/fotoalu{1..2}.jpg
+
+Actividad 8: Ahora estás situado en el directorio AulaOpt, y quieres cambiar el directorio de trabajo actual a NotasOpt. Utiliza rutas relativas.
+
+cd ../AlumnosOpt/NotasOpt
+
+Actividad 9: Copia todo el contenido de la carpeta que has creado en el ejercicio 7 en Informática. Supón que estás en /home/alumno y lo quieres hacer sin salir de esa carpeta.
+
+cp -r Informatica/AlumnosInf/* Informatica/
+
+Actividad 10: Desde Turismo, y usando rutas absolutas, cambia el nombre del directorio AulaOpt para que pase a llamarse AulaOptica.
+
+mv /home/alumno/Optica/AulaOpt /home/alumno/Optica/AulaOptica
+
+Actividad 11: Borra el directorio AlumnosInf.
+
+rm -r AlumnosInf
+
+Actividad 12: Indica al menos 3 propiedades sobre ficheros que contiene un inodo.
+
+
+Número de inodo: Un identificador único para cada archivo.
+Tipo de archivo: Indica si el archivo es regular, un directorio u otro tipo.
+Tamaño y bloques de datos: Información sobre el tamaño del archivo y cómo se almacenan los datos en bloques.
+
+Actividad 13: ¿Qué es un hard link o enlace duro? ¿Y uno simbólico? Explica las diferencias entre ellos.
+
+Un enlace duro es una referencia a un archivo que comparte el mismo conjunto de datos en disco que el archivo original. Si eliminas un enlace duro, el archivo original aún existe.
+
+Un enlace simbólico es un archivo especial que apunta a otro archivo o directorio mediante una ruta. No comparte datos en disco con el archivo original y puede cruzar sistemas de archivos o redes. Si eliminas el archivo original, el enlace simbólico se vuelve inválido.
+
+Actividad 14: Nombra al menos 3 directorios importantes en Linux e indica qué contienen.
+
+/bin: Contiene comandos esenciales para el sistema.
+/etc: Almacena archivos de configuración del sistema y de aplicaciones.
+/home: Directorios personales de usuarios con sus archivos y configuraciones.
+
+Actividad 15: ¿Qué dos directorios especiales tiene Linux? Explica a qué hace referencia cada uno y para qué resultan útiles.
+
+/dev: Contiene archivos que representan dispositivos de hardware.
+/proc: Proporciona información en tiempo real sobre procesos y configuración del sistema.
+
+
+Actividad 16: ¿Qué diferencia hay entre una ruta absoluta y una relativa?
+
+La ruta absoluta comienza desde la raíz del sistema ("/"), mientras que la ruta relativa se basa en la ubicación actual y no incluye la raíz.
+
+Actividad 17: Nombra los 5 tipos de archivos básicos en Linux y explica todo lo que sepas sobre cada uno.
+
+Archivo Regular: Contiene datos como texto, imágenes o programas ejecutables.
+Directorio: Almacena archivos y otros directorios, organizando la estructura del sistema de archivos.
+Enlace Duro: Es una referencia adicional al mismo archivo original, compartiendo datos en disco.
+Enlace Simbólico: Es un archivo especial que apunta a otro archivo o directorio mediante una ruta.
+Dispositivo de Carácter y Bloque: Representan dispositivos de hardware en el sistema, como discos duros o impresoras.
+
+Actividad 18: ¿Cuál es el tipo de Shell que has utilizado en clase para ejecutar los comandos Linux vistos durante el tema 8? ¿Por qué sabes que es ese tipo (qué características tiene)?
+
+El tipo de shell utilizado en clase para ejecutar comandos Linux en el tema 8 es el shell Bash (Bourne Again Shell). Esto se sabe por características como el prompt, el historial de comandos, el completado de tabulador, la capacidad de redirección y tuberías, la posibilidad de escribir scripts de shell y su amplia disponibilidad en distribuciones de Linux.
+
+Actividad 19: Pedro ha creado un archivo llamado doc1.txt en el directorio /home/alumno. Sabe que cuando se crea un fichero nuevo, se le asigna un número de inodo que es el que contendrá la información sobre él. ¿Cómo puede comprobar el número de inodo? Escribe cómo lo harás con una sola orden si el directorio de trabajo actual fuera /etc. Usa rutas relativas.
+
+ls -i /home/alumno/doc1.txt
+
+Actividad 20: Ahora Pedro quiere crear un enlace simbólico llamado ensimbolico a ese mismo fichero, y luego uno duro llamado enduro. ¿Con qué ordenes lo conseguiría? Escríbelas.
+
+ln -s /home/alumno/doc1.txt ensimbolico
+
+ln /home/alumno/doc1.txt enduro
+
+Actividad 21: ¿Qué le pasa a los enlaces simbólicos cuando borramos el archivo al que hacían referencia? ¿Y a los duros? Justifica por qué.
+
+Cuando se borra el archivo al que hacen referencia:
+
+Los enlaces simbólicos quedan rotos, ya que solo almacenan la ruta.
+Los enlaces duros mantienen los datos en disco hasta que todos los enlaces duros se borren. Comparten el mismo conjunto de datos en disco con el archivo original.
+
+Actividad 22: ¿Cuándo se borra la información de un archivo en un inodo?
+
+
+La información en un inodo se borra cuando se cumplen dos condiciones:
+
+Todos los enlaces duros al archivo se eliminan.
+Ningún proceso tiene el archivo abierto. Después de cumplirse estas condiciones, el sistema de archivos libera el inodo y los datos asociados para su reutilización.
+
+Actividad 23: Muestra el contenido del directorio /etc de forma que muestre también los archivos ocultos, muestre los atributos de cada fichero o directorio y los ordene, además, de forma inversa.
+
+ls -alr /etc
+
+Actividad 24: En el directorio /home/alumno, tenemos varios directorios que contienen información que ya no nos interesa y queremos borrarlos junto con todo su contenido. Como sólo queremos borrar directorios concretos, queremos que afecte a aquellos que empiezan con una letra mayúscula, seguida de dos caracteres y que no acaben en número.
+
+find /home/alumno -type d -regex '/home/alumno/[A-Z][a-zA-Z]\{2\}' -not -regex '/home/alumno/[A-Z][a-zA-Z]\{2\}[0-9]' -exec rm -r {} \;
+
+Actividad 25: Estamos en el directorio /bin y queremos mostrar el contenido de /etc/mtools.conf. Queremos que la visualización nos permita recorrer el documento hacia delante y hacia atrás, y que no salga de él hasta que lleguemos al final por segunda vez. Escribe el comando (una sola orden) que utilizarías empleando rutas relativas.
+
+less -p ".*" /etc/mtools.conf
+
+Actividad 26: Tenemos un fichero de texto llamado mismemorias.txt que queremos imprimir, pero antes de hacerlo, deseamos ver como quedaría. Queremos que lo muestre con doble línea de espaciado y con la cabecera “Memorias” y que en cada página haya 25 líneas. Además, queremos volcarlo al fichero imprimir.txt en lugar de mostrarlo por consola. ¿Qué orden ejecutarías para conseguir esto antes de imprimir?
+
+enscript -2rG --header="Memorias" --lines=25 -p imprimir.txt mismemorias.txt
+
+
+Actividad 27: Ya hemos visto cómo ha quedado el documento del ejercicio anterior y no ha gustado. Ahora queremos imprimirlo. La impresora que tenemos conectada al equipo tiene como nombre Epson640, y queremos que imprima dos copias del documento, ¿qué orden ejecutarías para conseguir que lo imprimiera así?
+
+lp -n 2 -d Epson640 imprimir.txt
+
+Actividad 28: Si ejecuto esta orden $ chmod go-rwx Ejercicios/ *.txt, ¿qué sucederá? Detállalo.
+
+La orden $ chmod go-rwx Ejercicios/ *.txt tiene un problema de sintaxis. Para cambiar los permisos correctamente, debes usar comandos separados, uno para el directorio y otro para los archivos.
+
+Actividad 29: Paco quiere comprimir un fichero llamado imagen.jpg para que le ocupe menos espacio en el disco duro. ¿Qué le recomendarías, hacerlo con el formato tar o zip? ¿por qué?
+
+Si quieres reducir el tamaño del archivo, utiliza el formato zip. Si solo necesitas agrupar varios archivos manteniendo la integridad, considera el formato tar, pero podría requerir compresión adicional. La elección depende de tus necesidades y de la compatibilidad con los sistemas de destino.
+
+Actividad 30: Escribe las líneas de comando que ejecutarías para:
+
+
+a. Crear una carpeta en el directorio de trabajo actual llamada Archivos.
+b. Generar los archivos vacíos llamados historia1.txt, historia2.txt e historia3.txt.
+c. Abrir cada uno de los archivos anteriores con gedit, para editarlos (omite el paso de editarlos y guardarlos, especifica sólo como abrirlo desde consola).
+d. Comprimirlos en un archivo llamado hist.tar.
+e. Visualizar el contenido de dicho archivo comprimido.
+f. Descomprimirlo.
+
+mkdir Archivos
+touch historia1.txt historia2.txt historia3.txt
+gedit historia1.txt &
+gedit historia2.txt &
+gedit historia3.txt &
+tar -cf hist.tar historia1.txt historia2.txt historia3.txt
+tar -tf hist.tar
+tar -xf hist.tar
+
+Actividad 31: Queremos buscar los enlaces simbólicos que tenemos en el directorio /home/alumno. De lo que nos muestre, queremos filtrar sólo aquellos que empiecen por enl seguido de algún número, y nos da igual cómo acabe. El resultado lo queremos volcar en el fichero resultados.txt. Indica cómo lo harías si estás en /home/alumno.
+
+find /home/alumno -type l -name 'enl*[0-9]*' > resultados.txt
+
+Actividad 32: Indica qué orden ejecutarías para obtener los ficheros de la carpeta /etc y sólo de esa carpeta, que tienen la extensión “.txt”, sin importar si lo pone en mayúsculas o minúsculas, y que fueron accedidos durante el último mes. Además lo queremos ordenado alfabéticamente.
+
+find /etc -iname '*.txt' -atime -30 -exec ls -l {} \; | sort
+
+Actividad 33: Muestra qué ficheros y directorios de /bin tienen fecha de Mayo de 2007.
+
+find /bin -type f -newermt 2007-05-01 ! -newermt 2007-06-01
+
+Actividad 34: Si tuvieras privilegios de administrador, ¿cómo harías que la fecha y hora del sistema fueran 12 de Noviembre de 2009? Indica la orden.
+
+sudo date --set="2009-11-12 00:00:00"
+
+Actividad 35: ¿Qué sucederá si ejecuto esta orden: $ cat –b /etc/mtools.conf | grep -c disk > fichero.txt? Indica también qué contendrá fichero.txt
+
+La orden $ cat –b /etc/mtools.conf | grep -c disk > fichero.txt contiene un error en la opción de cat y no se ejecutará correctamente. La orden corregida sería cat /etc/mtools.conf | grep -c "disk" > fichero.txt, y su función es contar cuántas líneas en el archivo /etc/mtools.conf contienen la palabra "disk" y guardar ese número en el archivo fichero.txt.
