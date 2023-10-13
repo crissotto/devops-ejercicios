@@ -3,20 +3,21 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                echo 'Building..'
+                echo 'Hello'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+
+	stage('cat README') {
+	    when {
+	       branch "fix-*"
+	}
+	steps {
+	  sh  '''
+	      cat README.md
+	      '''
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+      }
     }
 }
