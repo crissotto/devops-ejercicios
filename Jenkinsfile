@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pipeline {
   agent {label "linux"}
   options {
