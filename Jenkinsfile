@@ -1,23 +1,27 @@
 #!/bin/bash
 
 pipeline {
-    agent any
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello'
-            }
-        }
+  agent (label "linux")
 
-	stage('cat README') {
-	    when {
-	       branch "fix-*"
-	}
-	steps {
-	  sh  '''
-	      cat README.md
-	      '''
-        }
+  options {
+    buildDiscarder logRotator (artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: ", numToKeepStr: '5')
+    disableConcurrentBuilds()
+  }
+
+  stages {
+    stage('Hello') {
+      steps {
+        echo "hello"
       }
     }
+
+    stage('cat README') {
+      when {
+        branch "fix-*"
+      }
+      steps {
+        cat README.md
+      }
+    }
+  }
 }
